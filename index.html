@@ -1,0 +1,1256 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Saveur Créole - Restaurant de cuisine haïtienne authentique à Port-au-Prince">
+    <meta name="keywords" content="restaurant haïtien, cuisine créole, Port-au-Prince, saveurs authentiques">
+    <title>Saveur Créole | Restaurant Haïtien Authentique</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- AOS Animation -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+    <link rel="stylesheet" href="restorant.css">
+  
+</head>
+<body>
+
+    <!-- Bande promo top -->
+    <div class="promo-band">
+        <i class="fas fa-star"></i>
+        Offre spéciale — Commandez pour 2 personnes, obtenez un dessert gratuit !
+        <i class="fas fa-star"></i>
+    </div>
+
+    <!-- =====================================================
+         NAVBAR BOOTSTRAP FIXE
+    ===================================================== -->
+    <nav class="navbar navbar-expand-lg navbar-saveur fixed-top" id="mainNavbar">
+        <div class="container">
+            <!-- Brand -->
+            <a class="navbar-brand-wrapper" href="#accueil">
+                <img src="image/loge.jpeg" alt="Logo Saveur Créole" class="navbar-brand-img">
+                <div>
+                    <span class="navbar-brand-text">Saveur Créole</span>
+                    <span class="navbar-brand-sub">Depuis 2010</span>
+                </div>
+            </a>
+
+            <!-- Toggle mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarMenu" aria-controls="navbarMenu" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <!-- Liens nav -->
+            <div class="collapse navbar-collapse" id="navbarMenu">
+                <ul class="navbar-nav ms-auto gap-1">
+                    <li class="nav-item"><a class="nav-link active" href="#accueil"><i class="fas fa-home"></i> Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#specialites"><i class="fas fa-utensils"></i> Spécialités</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#le-menu"><i class="fas fa-book"></i> Menu</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#galerie"><i class="fas fa-images"></i> Galerie</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#apropos"><i class="fas fa-info-circle"></i> À Propos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#reservation"><i class="fas fa-calendar-check"></i> Réservation</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contacter"><i class="fas fa-envelope"></i> Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- =====================================================
+         HERO
+    ===================================================== -->
+    <section class="hero-section" id="accueil">
+        <div class="hero-overlay"></div>
+        <div class="hero-decoration"></div>
+        <div class="container position-relative" style="z-index:2; padding-top: 60px;">
+            <div class="row align-items-center gy-5">
+                <!-- Texte -->
+                <div class="col-lg-6 col-xl-7" data-aos="fade-right">
+                    <div class="hero-badge">
+                        <i class="fas fa-award"></i>
+                        Meilleur restaurant haïtien – Port-au-Prince 2024
+                    </div>
+                    <h1 class="hero-title">
+                        <span class="title-welcome">Bienvenue à</span>
+                        <span class="title-main">Saveur Créole</span>
+                        <span class="title-sub">L'âme de la cuisine haïtienne</span>
+                    </h1>
+                    <p class="hero-description">
+                        Découvrez l'authenticité des saveurs haïtiennes dans une ambiance chaleureuse et conviviale. Chaque plat raconte une histoire.
+                    </p>
+                    <div class="d-flex flex-wrap gap-3">
+                        <a href="#reservation" class="btn-creole-primary">
+                            <i class="fas fa-utensils"></i> Réserver une table
+                        </a>
+                        <a href="#le-menu" class="btn-creole-outline">
+                            <i class="fas fa-book-open"></i> Découvrir le menu
+                        </a>
+                    </div>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">15+</span>
+                            <span class="hero-stat-label">Ans d'expérience</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">500+</span>
+                            <span class="hero-stat-label">Clients satisfaits</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">30+</span>
+                            <span class="hero-stat-label">Plats au menu</span>
+                        </div>
+                        <div class="hero-stat">
+                            <span class="hero-stat-number">100%</span>
+                            <span class="hero-stat-label">Produits locaux</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Image -->
+                <div class="col-lg-6 col-xl-5" data-aos="fade-left">
+                    <div class="hero-image-wrapper">
+                        <img src="image/dirikole.jpeg" alt="Spécialité Saveur Créole" class="hero-plate-img">
+                        <div class="hero-plate-badge badge-top">
+                            <i class="fas fa-fire me-1"></i> Spécialité du Chef
+                        </div>
+                        <div class="hero-plate-badge badge-bottom">
+                            <i class="fas fa-leaf me-1"></i> 100% Naturel
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="#features" class="scroll-down-btn">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <!-- =====================================================
+         FEATURES STRIP
+    ===================================================== -->
+    <div class="features-strip" id="features">
+        <div class="container">
+            <div class="row gy-3">
+                <div class="col-6 col-md-3">
+                    <div class="feature-pill">
+                        <i class="fas fa-leaf"></i>
+                        <div>
+                            <span>Zéro Additif</span><br>
+                            <small>100% naturel</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="feature-pill">
+                        <i class="fas fa-seedling"></i>
+                        <div>
+                            <span>Produits Locaux</span><br>
+                            <small>Circuits courts</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="feature-pill">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <span>Ouvert 7j/7</span><br>
+                            <small>10h00 – 22h00</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3">
+                    <div class="feature-pill">
+                        <i class="fas fa-truck"></i>
+                        <div>
+                            <span>Livraison</span><br>
+                            <small>Zone Delmas & Pétion-Ville</small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================
+         SPÉCIALITÉS
+    ===================================================== -->
+    <section class="specialites-section" id="specialites">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <div class="section-badge"><i class="fas fa-fire"></i> Nos Spécialités</div>
+                <h2 class="section-title-main">Spécialités Créoles</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">Des plats traditionnels préparés avec passion et des ingrédients frais</p>
+            </div>
+
+            <div class="row g-4">
+                <!-- Card 1 -->
+                <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="specialite-card">
+                        <div class="card-img-wrapper">
+                            <img src="image/akra.jpeg" alt="Akra" class="card-dish-img">
+                            <div class="card-overlay">
+                                <button class="btn-card-action"><i class="fas fa-eye"></i></button>
+                                <button class="btn-card-action"><i class="far fa-heart"></i></button>
+                                <button class="btn-card-action"><i class="fas fa-shopping-cart"></i></button>
+                            </div>
+                        </div>
+                        <div class="card-body-custom">
+                            <h3 class="card-dish-name">Akra</h3>
+                            <p class="card-dish-desc">Beignets de malanga croustillants, spécialité du matin</p>
+                            <div class="card-dish-footer">
+                                <span class="card-dish-price">25 gds</span>
+                                <span class="card-dish-stars">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="specialite-card">
+                        <div class="card-img-wrapper">
+                            <img src="image/bannan.jpeg" alt="Bannann Peze" class="card-dish-img">
+                            <div class="card-overlay">
+                                <button class="btn-card-action"><i class="fas fa-eye"></i></button>
+                                <button class="btn-card-action"><i class="far fa-heart"></i></button>
+                                <button class="btn-card-action"><i class="fas fa-shopping-cart"></i></button>
+                            </div>
+                        </div>
+                        <div class="card-body-custom">
+                            <h3 class="card-dish-name">Bannann Peze</h3>
+                            <p class="card-dish-desc">Bananes plantain frites assaisonnées à l'haïtienne</p>
+                            <div class="card-dish-footer">
+                                <span class="card-dish-price">50 gds</span>
+                                <span class="card-dish-stars">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="specialite-card">
+                        <div class="card-img-wrapper">
+                            <img src="image/dirikole.jpeg" alt="Diri Kole" class="card-dish-img">
+                            <div class="card-overlay">
+                                <button class="btn-card-action"><i class="fas fa-eye"></i></button>
+                                <button class="btn-card-action"><i class="far fa-heart"></i></button>
+                                <button class="btn-card-action"><i class="fas fa-shopping-cart"></i></button>
+                            </div>
+                        </div>
+                        <div class="card-body-custom">
+                            <h3 class="card-dish-name">Diri Kole</h3>
+                            <p class="card-dish-desc">Riz collé au poisson traditionnel, mijoté au feu doux</p>
+                            <div class="card-dish-footer">
+                                <span class="card-dish-price">750 gds</span>
+                                <span class="card-dish-stars">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 4 -->
+                <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="specialite-card">
+                        <div class="card-img-wrapper">
+                            <img src="image/soupe_joumou.jpeg" alt="Soupe Joumou" class="card-dish-img">
+                            <div class="card-overlay">
+                                <button class="btn-card-action"><i class="fas fa-eye"></i></button>
+                                <button class="btn-card-action"><i class="far fa-heart"></i></button>
+                                <button class="btn-card-action"><i class="fas fa-shopping-cart"></i></button>
+                            </div>
+                        </div>
+                        <div class="card-body-custom">
+                            <h3 class="card-dish-name">Soupe Joumou</h3>
+                            <p class="card-dish-desc">Soupe à la citrouille symbolique, plat national haïtien</p>
+                            <div class="card-dish-footer">
+                                <span class="card-dish-price">350 gds</span>
+                                <span class="card-dish-stars">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 5 -->
+                <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="specialite-card">
+                        <div class="card-img-wrapper">
+                            <img src="image/mais.jpeg" alt="Maïs Moulu" class="card-dish-img">
+                            <div class="card-overlay">
+                                <button class="btn-card-action"><i class="fas fa-eye"></i></button>
+                                <button class="btn-card-action"><i class="far fa-heart"></i></button>
+                                <button class="btn-card-action"><i class="fas fa-shopping-cart"></i></button>
+                            </div>
+                        </div>
+                        <div class="card-body-custom">
+                            <h3 class="card-dish-name">Maïs Moulu</h3>
+                            <p class="card-dish-desc">Maïs moulu blanc avec des avocats frais de saison</p>
+                            <div class="card-dish-footer">
+                                <span class="card-dish-price">1000 gds</span>
+                                <span class="card-dish-stars">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 6 -->
+                <div class="col-sm-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="specialite-card">
+                        <div class="card-img-wrapper">
+                            <img src="image/pate.jpeg" alt="Ti Pate" class="card-dish-img">
+                            <div class="card-overlay">
+                                <button class="btn-card-action"><i class="fas fa-eye"></i></button>
+                                <button class="btn-card-action"><i class="far fa-heart"></i></button>
+                                <button class="btn-card-action"><i class="fas fa-shopping-cart"></i></button>
+                            </div>
+                        </div>
+                        <div class="card-body-custom">
+                            <h3 class="card-dish-name">Ti Pate</h3>
+                            <p class="card-dish-desc">Pâté à base de farine et de viande bien assaisonnée</p>
+                            <div class="card-dish-footer">
+                                <span class="card-dish-price">200 gds</span>
+                                <span class="card-dish-stars">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-5" data-aos="fade-up">
+                <a href="#le-menu" class="btn-red btn btn-lg">
+                    <i class="fas fa-book"></i> Explorer tout notre menu
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         MENU SECTION
+    ===================================================== -->
+    <section class="menu-section" id="le-menu">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <div class="section-badge"><i class="fas fa-book-open"></i> Notre Menu</div>
+                <h2 class="section-title-main">Menu Authentique</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">Préparé avec des ingrédients frais et locaux chaque jour</p>
+            </div>
+
+            <div class="menu-tabs-css">
+                <input type="radio" name="menu-tab" id="tab-friture" checked>
+                <input type="radio" name="menu-tab" id="tab-plats">
+                <input type="radio" name="menu-tab" id="tab-desserts">
+                <input type="radio" name="menu-tab" id="tab-boissons">
+
+                <div class="menu-tabs-bar">
+                    <label for="tab-friture" class="tab-label"><i class="fas fa-fire"></i> Friture Créole</label>
+                    <label for="tab-plats" class="tab-label"><i class="fas fa-drumstick-bite"></i> Plats Principaux</label>
+                    <label for="tab-desserts" class="tab-label"><i class="fas fa-ice-cream"></i> Desserts</label>
+                    <label for="tab-boissons" class="tab-label"><i class="fas fa-cocktail"></i> Boissons</label>
+                </div>
+
+                <div class="tab-content" id="content-friture">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-item-name">Akra</div>
+                                    <div class="menu-item-desc">Beignets de malanga croustillants</div>
+                                </div>
+                                <span class="menu-item-price">25 gds</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-item-name">Bannann Peze</div>
+                                    <div class="menu-item-desc">Bananes plantain frites assaisonnées</div>
+                                </div>
+                                <span class="menu-item-price">50 gds</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-item-name">Marinad</div>
+                                    <div class="menu-item-desc">Beignets de morue traditionnels</div>
+                                </div>
+                                <span class="menu-item-price">25 gds</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-item-name">Ti Pate</div>
+                                    <div class="menu-item-desc">Petits pâtés farcis à la viande</div>
+                                </div>
+                                <span class="menu-item-price">50 gds</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-item-name">Banan Dous</div>
+                                    <div class="menu-item-desc">Banane douce frite au sucre</div>
+                                </div>
+                                <span class="menu-item-price">40 gds</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-item-name">Pikliz</div>
+                                    <div class="menu-item-desc">Accompagnement pimenté maison</div>
+                                </div>
+                                <span class="menu-item-price">20 gds</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="content-plats">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-item-name">Diri Kole ak Sos Pwason</div>
+                                    <div class="menu-item-desc">Riz collé au poisson traditionnel</div>
+                                </div>
+                                <span class="menu-item-price">750 gds</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-item-name">Mayi ak Sos Vyann</div>
+                                    <div class="menu-item-desc">Maïs avec sauce aux pois et viande</div>
+                                </div>
+                                <span class="menu-item-price">750 gds</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-item-name">Bouyon Tèt Kabrit</div>
+                                    <div class="menu-item-desc">Soupe de tête de cabri relevée</div>
+                                </div>
+                                <span class="menu-item-price">1000 gds</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-item-name">Griot ak Sos Ti Malice</div>
+                                    <div class="menu-item-desc">Porc frit avec sauce pimentée</div>
+                                </div>
+                                <span class="menu-item-price">850 gds</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-item-name">Soupe Joumou</div>
+                                    <div class="menu-item-desc">Soupe nationale à la citrouille</div>
+                                </div>
+                                <span class="menu-item-price">350 gds</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-item-name">Poulet en Sos</div>
+                                    <div class="menu-item-desc">Poulet mijoté sauce créole</div>
+                                </div>
+                                <span class="menu-item-price">900 gds</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="content-desserts">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-item-name">Dous Makòs</div>
+                                    <div class="menu-item-desc">Spécialité maison traditionnelle</div>
+                                </div>
+                                <span class="menu-item-price">180 gds</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-item-name">Comparet</div>
+                                    <div class="menu-item-desc">Fruits confits locaux</div>
+                                </div>
+                                <span class="menu-item-price">150 gds</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-item-name">Kokiyòl</div>
+                                    <div class="menu-item-desc">Noix de coco caramélisée</div>
+                                </div>
+                                <span class="menu-item-price">120 gds</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-item-name">Pain Patate</div>
+                                    <div class="menu-item-desc">Gâteau à la patate douce</div>
+                                </div>
+                                <span class="menu-item-price">200 gds</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-item-name">Flan Coco</div>
+                                    <div class="menu-item-desc">Flan crémeux à la noix de coco</div>
+                                </div>
+                                <span class="menu-item-price">160 gds</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-item-name">Tablet Pistach</div>
+                                    <div class="menu-item-desc">Tablette de cacahuètes sucrées</div>
+                                </div>
+                                <span class="menu-item-price">80 gds</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="tab-content" id="content-boissons">
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-item-name">Jus de Fruit Frais</div>
+                                    <div class="menu-item-desc">Mango, Goyave, Corossol</div>
+                                </div>
+                                <span class="menu-item-price">100 gds</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-item-name">Papye Krem</div>
+                                    <div class="menu-item-desc">Laitue à la papaye fraîche</div>
+                                </div>
+                                <span class="menu-item-price">120 gds</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-item-name">Bière Haïtienne</div>
+                                    <div class="menu-item-desc">Prestige, La Colombe</div>
+                                </div>
+                                <span class="menu-item-price">150 gds</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-item-name">Rhum Barbancourt</div>
+                                    <div class="menu-item-desc">Cocktails traditionnels</div>
+                                </div>
+                                <span class="menu-item-price">250 gds</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-item-name">Thé & Tisanes</div>
+                                    <div class="menu-item-desc">Citronelle, Zeb Odè, Lemongrass</div>
+                                </div>
+                                <span class="menu-item-price">80 gds</span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="menu-item">
+                                <div>
+                                    <div class="menu-item-name">Eau de Coco</div>
+                                    <div class="menu-item-desc">Coco fraîche naturelle</div>
+                                </div>
+                                <span class="menu-item-price">90 gds</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         GALERIE
+    ===================================================== -->
+    <section class="gallery-section" id="galerie">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <div class="section-badge"><i class="fas fa-camera"></i> Galerie</div>
+                <h2 class="section-title-main">Notre Galerie</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">Découvrez notre ambiance et nos plats préparés avec amour</p>
+            </div>
+            <div class="row g-3">
+                <div class="col-6 col-md-4" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="gallery-item">
+                        <img src="image/akra.jpeg" alt="Akra" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h4>Akra Traditionnel</h4>
+                                <p>Beignets de malanga</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4" data-aos="zoom-in" data-aos-delay="80">
+                    <div class="gallery-item">
+                        <img src="image/bannan.jpeg" alt="Bannann Peze" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h4>Bannann Peze</h4>
+                                <p>Bananes plantain frites</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4" data-aos="zoom-in" data-aos-delay="160">
+                    <div class="gallery-item">
+                        <img src="image/dirikole.jpeg" alt="Diri Kole" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h4>Diri Kole ak Pwason</h4>
+                                <p>Riz collé traditionnel</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4" data-aos="zoom-in" data-aos-delay="0">
+                    <div class="gallery-item">
+                        <img src="image/soupe_joumou.jpeg" alt="Soupe Joumou" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h4>Soupe Joumou</h4>
+                                <p>Plat national haïtien</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4" data-aos="zoom-in" data-aos-delay="80">
+                    <div class="gallery-item">
+                        <img src="image/mais.jpeg" alt="Maïs Moulu" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h4>Maïs Moulu</h4>
+                                <p>Avec avocat frais</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-6 col-md-4" data-aos="zoom-in" data-aos-delay="160">
+                    <div class="gallery-item">
+                        <img src="image/pate.jpeg" alt="Ti Pate" class="gallery-img">
+                        <div class="gallery-overlay">
+                            <div class="gallery-info">
+                                <h4>Ti Pate</h4>
+                                <p>Pâté maison traditionnel</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         À PROPOS
+    ===================================================== -->
+    <section class="about-section" id="apropos">
+        <div class="container">
+            <div class="row gy-5">
+                <!-- Texte -->
+                <div class="col-lg-8" data-aos="fade-right">
+                    <div class="mb-4">
+                        <div class="section-badge"><i class="fas fa-history"></i> Notre Histoire</div>
+                        <h2 class="section-title-main">Depuis 2010, une passion</h2>
+                        <div class="section-divider" style="margin: 0 0 1rem;"></div>
+                    </div>
+                    <div class="about-story">
+                        <p class="mb-3"><strong>Depuis plus de quinze ans,</strong> Saveur Créole célèbre l'âme de la cuisine haïtienne avec passion. Fondé en 2010 par <span class="highlight">Pascal Aliya</span>, inspirée par les recettes transmises par sa grand-mère, notre restaurant allie tradition, qualité et convivialité.</p>
+                        <p class="mb-3"><strong>Chaque plat est préparé à la main,</strong> avec des ingrédients frais et locaux : du diri kole ak sos pwason mijoté au feu doux aux akras de malanga croustillants du matin. Nous refusons les produits industriels — ici, tout est fait maison.</p>
+                        <p class="mb-3"><strong>Notre engagement va au-delà de la cuisine :</strong> nous soutenons les petits agriculteurs de Léogâne, Croix-des-Bouquets et Jacmel, et participons activement à la transmission du patrimoine culinaire haïtien.</p>
+                        <p class="mb-0"><strong>Aujourd'hui dirigé par la deuxième génération</strong> — <span class="highlight">Lima James</span> et <span class="highlight">François Novenie</span> — Saveur Créole reste fidèle à ses valeurs fondamentales.</p>
+                    </div>
+
+                    <div class="row g-3 mt-4">
+                        <div class="col-6 col-md-3">
+                            <div class="value-card">
+                                <i class="fas fa-leaf"></i>
+                                <h5>Zéro Additif</h5>
+                                <p>Produits 100% naturels</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="value-card">
+                                <i class="fas fa-seedling"></i>
+                                <h5>Produits Locaux</h5>
+                                <p>Soutien à l'agriculture haïtienne</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="value-card">
+                                <i class="fas fa-book"></i>
+                                <h5>Tradition</h5>
+                                <p>Recettes authentiques transmises</p>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3">
+                            <div class="value-card">
+                                <i class="fas fa-heart"></i>
+                                <h5>Passion</h5>
+                                <p>Amour dans chaque assiette</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stats -->
+                <div class="col-lg-4" data-aos="fade-left">
+                    <div class="row g-3">
+                        <div class="col-6 col-lg-12">
+                            <div class="stat-card">
+                                <div class="stat-number">15+</div>
+                                <div class="stat-label">Années d'expérience</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-12">
+                            <div class="stat-card">
+                                <div class="stat-number">500+</div>
+                                <div class="stat-label">Clients satisfaits</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-12">
+                            <div class="stat-card">
+                                <div class="stat-number">100%</div>
+                                <div class="stat-label">Produits locaux</div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-12">
+                            <div class="stat-card">
+                                <div class="stat-number">7j/7</div>
+                                <div class="stat-label">Service chaleureux</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         POURQUOI NOUS
+    ===================================================== -->
+    <section class="whyus-section">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <h2 class="section-title-main white">Pourquoi Choisir Saveur Créole ?</h2>
+                <div class="section-divider" style="background: linear-gradient(to right,#FFD700,#fff);"></div>
+            </div>
+            <div class="row g-4">
+                <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="0">
+                    <div class="whyus-item">
+                        <div class="whyus-icon"><i class="fas fa-utensils"></i></div>
+                        <h5>Cuisine Authentique</h5>
+                        <p>Recettes transmises de génération en génération</p>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="whyus-item">
+                        <div class="whyus-icon"><i class="fas fa-truck"></i></div>
+                        <h5>Livraison Rapide</h5>
+                        <p>Livraison dans la zone Delmas et Pétion-Ville</p>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="whyus-item">
+                        <div class="whyus-icon"><i class="fas fa-users"></i></div>
+                        <h5>Évènements Privés</h5>
+                        <p>Privatisation de salle pour vos occasions spéciales</p>
+                    </div>
+                </div>
+                <div class="col-6 col-lg-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="whyus-item">
+                        <div class="whyus-icon"><i class="fas fa-wifi"></i></div>
+                        <h5>Wi-Fi Gratuit</h5>
+                        <p>Profitez de notre connexion haut débit</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         TÉMOIGNAGES
+    ===================================================== -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <div class="section-badge"><i class="fas fa-comments"></i> Témoignages</div>
+                <h2 class="section-title-main">Ce que disent nos clients</h2>
+                <div class="section-divider"></div>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center gap-3 mb-2">
+                            <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+                            <div>
+                                <div class="testimonial-name">Jean Dupont</div>
+                                <div class="testimonial-role">Client fidèle depuis 2015</div>
+                                <div class="testimonial-stars">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">"Une expérience culinaire exceptionnelle ! Les saveurs sont authentiques et l'accueil est chaleureux. Le diri kole est tout simplement parfait."</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center gap-3 mb-2">
+                            <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+                            <div>
+                                <div class="testimonial-name">Marie Laroche</div>
+                                <div class="testimonial-role">Cliente régulière</div>
+                                <div class="testimonial-stars">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">"J'adore venir ici pour le bannann peze et les akras. C'est comme manger chez ma grand-mère ! Le service est impeccable."</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center gap-3 mb-2">
+                            <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+                            <div>
+                                <div class="testimonial-name">Michel Saint-Louis</div>
+                                <div class="testimonial-role">Gastronome haïtien</div>
+                                <div class="testimonial-stars">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">"Le meilleur restaurant haïtien de Port-au-Prince ! Les plats sont préparés avec amour et les ingrédients sont toujours frais."</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="0">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center gap-3 mb-2">
+                            <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+                            <div>
+                                <div class="testimonial-name">Sophie Belizaire</div>
+                                <div class="testimonial-role">Blogueuse culinaire</div>
+                                <div class="testimonial-stars">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">"Je recommande Saveur Créole à tous ceux qui veulent vivre une vraie expérience haïtienne. La soupe joumou est divine !"</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center gap-3 mb-2">
+                            <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+                            <div>
+                                <div class="testimonial-name">Réseau Diaspora HTI</div>
+                                <div class="testimonial-role">Groupe de visiteurs</div>
+                                <div class="testimonial-stars">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">"Revenu en Haïti après 10 ans, ce restaurant m'a redonné le goût du pays. Les saveurs sont intactes, authentiques et délicieuses."</p>
+                    </div>
+                </div>
+                <div class="col-md-6 col-lg-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="testimonial-card">
+                        <div class="d-flex align-items-center gap-3 mb-2">
+                            <div class="testimonial-avatar"><i class="fas fa-user"></i></div>
+                            <div>
+                                <div class="testimonial-name">Patrick Moïse</div>
+                                <div class="testimonial-role">Chef cuisinier</div>
+                                <div class="testimonial-stars">
+                                    <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <p class="testimonial-text">"En tant que professionnel, je salue la qualité des produits utilisés. Leur griot est le meilleur que j'ai mangé à Port-au-Prince !"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         RÉSERVATION
+    ===================================================== -->
+    <section class="reservation-section" id="reservation">
+        <div class="container">
+            <div class="row gy-5 align-items-start">
+                <!-- Info gauche -->
+                <div class="col-lg-5" data-aos="fade-right">
+                    <div class="section-badge" style="background:rgba(255,255,255,.2);color:#fff;"><i class="fas fa-calendar-check"></i> Réservation</div>
+                    <h2 class="section-title-main white mt-2">Réservez Votre Table</h2>
+                    <p style="color:rgba(255,255,255,.85); margin-bottom:2rem;">Une expérience gastronomique inoubliable vous attend. Réservez dès maintenant.</p>
+
+                    <div class="res-detail-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <h5>Adresse</h5>
+                            <p>123 Rue Saint Gerald, Delmas 33</p>
+                        </div>
+                    </div>
+                    <div class="res-detail-item">
+                        <i class="fas fa-clock"></i>
+                        <div>
+                            <h5>Horaires</h5>
+                            <p>Lundi – Dimanche : 10h00 – 22h00</p>
+                        </div>
+                    </div>
+                    <div class="res-detail-item">
+                        <i class="fas fa-phone"></i>
+                        <div>
+                            <h5>Téléphone</h5>
+                            <p>+509 4356 7890 / +509 3631 2578</p>
+                        </div>
+                    </div>
+                    <div class="res-detail-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <div>
+                            <h5>WhatsApp</h5>
+                            <p>Réservation instantanée via WhatsApp</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Formulaire -->
+                <div class="col-lg-7" data-aos="fade-left">
+                    <div class="reservation-form-card">
+                        <h4 style="color:var(--primary-color);font-weight:700;margin-bottom:1.5rem;"><i class="fas fa-calendar-check me-2"></i>Formulaire de Réservation</h4>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <label class="form-label-creole"><i class="fas fa-user"></i> Nom complet *</label>
+                                    <input type="text" class="form-control-creole" placeholder="Votre nom complet" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label-creole"><i class="fas fa-envelope"></i> Email *</label>
+                                    <input type="email" class="form-control-creole" placeholder="votre@email.com" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label-creole"><i class="fas fa-phone"></i> Téléphone *</label>
+                                    <input type="tel" class="form-control-creole" placeholder="+509 XX XX XX XX" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label-creole"><i class="fas fa-users"></i> Nombre de personnes *</label>
+                                    <input type="number" class="form-control-creole" min="1" max="50" placeholder="Ex: 4" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label-creole"><i class="fas fa-calendar"></i> Date *</label>
+                                    <input type="date" class="form-control-creole" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="form-label-creole"><i class="fas fa-clock"></i> Heure *</label>
+                                    <input type="time" class="form-control-creole" required>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label-creole"><i class="fas fa-utensils"></i> Occasion</label>
+                                    <select class="form-control-creole">
+                                        <option value="">Sélectionner une occasion</option>
+                                        <option>Anniversaire</option>
+                                        <option>Repas d'affaires</option>
+                                        <option>Repas romantique</option>
+                                        <option>Réunion de famille</option>
+                                        <option>Autre</option>
+                                    </select>
+                                </div>
+                                <div class="col-12">
+                                    <label class="form-label-creole"><i class="fas fa-comment"></i> Commentaires</label>
+                                    <textarea class="form-control-creole" rows="3" placeholder="Allergies, demandes spéciales…"></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn-red" style="width:100%; justify-content:center; padding:14px; font-size:1.05rem;">
+                                        <i class="fas fa-calendar-check"></i> Confirmer la Réservation
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         CONTACT
+    ===================================================== -->
+    <section class="contact-section" id="contacter">
+        <div class="container">
+            <div class="text-center mb-5" data-aos="fade-up">
+                <div class="section-badge"><i class="fas fa-envelope"></i> Contact</div>
+                <h2 class="section-title-main">Contactez-Nous</h2>
+                <div class="section-divider"></div>
+                <p class="section-subtitle">Nous sommes là pour répondre à toutes vos questions</p>
+            </div>
+
+            <div class="row g-4 mb-5">
+                <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="0">
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <h5>Adresse</h5>
+                        <p>123 Rue Saint Gerald<br>Delmas 33, Port-au-Prince<br>Haïti</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="100">
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-phone"></i></div>
+                        <h5>Téléphone</h5>
+                        <p>+509 4356 7890<br>+509 3631 2578</p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+                        <h5>Email</h5>
+                        <p><a href="mailto:saveur@creole.ht">saveur@creole.ht</a></p>
+                    </div>
+                </div>
+                <div class="col-6 col-md-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-clock"></i></div>
+                        <h5>Horaires</h5>
+                        <p>Lundi – Dimanche<br>10h00 – 22h00</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row g-4 align-items-start">
+                <!-- Formulaire -->
+                <div class="col-lg-7" data-aos="fade-right">
+                    <div class="contact-form-card">
+                        <h4 style="color:var(--primary-color);font-weight:700;margin-bottom:1.5rem;"><i class="fas fa-paper-plane me-2"></i>Envoyez-nous un message</h4>
+                        <form>
+                            <div class="row g-3">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control-creole" placeholder="Votre nom *" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control-creole" placeholder="Votre email *" required>
+                                </div>
+                                <div class="col-12">
+                                    <input type="text" class="form-control-creole" placeholder="Sujet *" required>
+                                </div>
+                                <div class="col-12">
+                                    <textarea class="form-control-creole" rows="5" placeholder="Votre message *" required></textarea>
+                                </div>
+                                <div class="col-12">
+                                    <button type="submit" class="btn-red" style="width:100%;justify-content:center;padding:13px;">
+                                        <i class="fas fa-paper-plane"></i> Envoyer le message
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Carte + Réseaux -->
+                <div class="col-lg-5" data-aos="fade-left">
+                    <div class="map-wrapper mb-4">
+                        <div class="map-placeholder">
+                            <i class="fas fa-map-marked-alt"></i>
+                            <strong>123 Rue Saint Gerald, Delmas 33</strong>
+                            <span style="font-size:.85rem;color:var(--text-gray);">Port-au-Prince, Haïti</span>
+                        </div>
+                    </div>
+                    <div class="contact-form-card" style="padding:1.5rem;">
+                        <h5 style="color:var(--primary-color);font-weight:700;margin-bottom:1rem;">Suivez-nous</h5>
+                        <div class="d-flex flex-wrap gap-2">
+                            <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" class="social-link" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                            <a href="#" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                            <a href="#" class="social-link" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+    <footer class="main-footer">
+        <div class="container">
+            <div class="row g-4 mb-4">
+                <!-- Col 1 — Brand -->
+                <div class="col-md-6 col-lg-3">
+                    <div class="d-flex align-items-center footer-brand mb-3">
+                        <img src="image/loge.jpeg" alt="Logo Saveur Créole">
+                        <h4 class="mb-0">Saveur Créole</h4>
+                    </div>
+                    <p style="color:rgba(255,255,255,.75);font-size:.9rem;line-height:1.8;">Restaurant de cuisine haïtienne authentique depuis 2010. Des saveurs traditionnelles dans une ambiance chaleureuse et familiale.</p>
+                    <div class="d-flex gap-2 mt-3">
+                        <a href="#" class="social-link" style="width:36px;height:36px;font-size:1rem;" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-link" style="width:36px;height:36px;font-size:1rem;" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-link" style="width:36px;height:36px;font-size:1rem;" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+
+                <!-- Col 2 — Liens rapides -->
+                <div class="col-md-6 col-lg-3">
+                    <span class="footer-col-title">Liens Rapides</span>
+                    <ul class="footer-link-list">
+                        <li><a href="#accueil"><i class="fas fa-chevron-right"></i> Accueil</a></li>
+                        <li><a href="#specialites"><i class="fas fa-chevron-right"></i> Spécialités</a></li>
+                        <li><a href="#le-menu"><i class="fas fa-chevron-right"></i> Menu</a></li>
+                        <li><a href="#galerie"><i class="fas fa-chevron-right"></i> Galerie</a></li>
+                        <li><a href="#apropos"><i class="fas fa-chevron-right"></i> À Propos</a></li>
+                        <li><a href="#reservation"><i class="fas fa-chevron-right"></i> Réservation</a></li>
+                        <li><a href="#contacter"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                    </ul>
+                </div>
+
+                <!-- Col 3 — Horaires + newsletter -->
+                <div class="col-md-6 col-lg-3">
+                    <span class="footer-col-title">Horaires d'Ouverture</span>
+                    <ul class="footer-hours-list mb-4">
+                        <li><span class="day">Lun – Ven</span><span class="time">10h00 – 22h00</span></li>
+                        <li><span class="day">Sam – Dim</span><span class="time">9h00 – 23h00</span></li>
+                        <li><span class="day">Jours fériés</span><span class="time">Sur réservation</span></li>
+                    </ul>
+                    <span class="footer-col-title">Newsletter</span>
+                    <div class="footer-newsletter">
+                        <input type="email" placeholder="Votre email" required>
+                        <button type="button"><i class="fas fa-paper-plane"></i></button>
+                    </div>
+                </div>
+
+                <!-- Col 4 — Contact -->
+                <div class="col-md-6 col-lg-3">
+                    <span class="footer-col-title">Contact</span>
+                    <div class="footer-contact-info">
+                        <p><i class="fas fa-map-marker-alt"></i> 123 Rue Saint Gerald, Delmas 33, Port-au-Prince</p>
+                        <p><i class="fas fa-phone"></i> +509 4356 7890</p>
+                        <p><i class="fas fa-phone"></i> +509 3631 2578</p>
+                        <p><i class="fas fa-envelope"></i> saveur@creole.ht</p>
+                        <p><i class="fab fa-whatsapp"></i> +509 4356 7890</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>&copy; 2026 Saveur Créole. Tous droits réservés.</p>
+                <p class="mt-1" style="font-size:.8rem;">Propulsé avec ❤️ par l'équipe Saveur Créole — Port-au-Prince, Haïti</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =====================================================
+         BOUTON RETOUR EN HAUT
+    ===================================================== -->
+    <a href="#accueil" id="backToTop" style="
+        position:fixed; bottom:25px; right:25px;
+        width:46px; height:46px; border-radius:50%;
+        background:linear-gradient(135deg,var(--primary-color),var(--primary-dark));
+        color:#fff; display:flex; align-items:center; justify-content:center;
+        font-size:1.1rem; text-decoration:none;
+        box-shadow:0 4px 15px rgba(192,0,0,.4);
+        transition:all .3s ease; z-index:9999;
+        opacity:0; pointer-events:none;
+    " aria-label="Retour en haut">
+        <i class="fas fa-chevron-up"></i>
+    </a>
+
+    <!-- =====================================================
+         SCRIPTS
+    ===================================================== -->
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- AOS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+    <script>
+        // Init AOS
+        AOS.init({ duration: 700, easing: 'ease-in-out', once: true, offset: 60 });
+
+        // Navbar scroll effect
+        const navbar = document.getElementById('mainNavbar');
+        const backToTop = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 80) {
+                navbar.classList.add('scrolled');
+                backToTop.style.opacity = '1';
+                backToTop.style.pointerEvents = 'auto';
+            } else {
+                navbar.classList.remove('scrolled');
+                backToTop.style.opacity = '0';
+                backToTop.style.pointerEvents = 'none';
+            }
+        });
+
+        // Active nav link on scroll
+        const sections = document.querySelectorAll('section[id], .hero-section[id]');
+        const navLinks = document.querySelectorAll('.navbar-saveur .nav-link');
+
+        window.addEventListener('scroll', () => {
+            let current = '';
+            sections.forEach(s => {
+                if (window.scrollY >= s.offsetTop - 120) current = s.id;
+            });
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + current) link.classList.add('active');
+            });
+        });
+
+        // Smooth close mobile menu on link click
+        document.querySelectorAll('.navbar-saveur .nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                const collapse = document.getElementById('navbarMenu');
+                const bsCollapse = bootstrap.Collapse.getInstance(collapse);
+                if (bsCollapse) bsCollapse.hide();
+            });
+        });
+    </script>
+</body>
+</html>
