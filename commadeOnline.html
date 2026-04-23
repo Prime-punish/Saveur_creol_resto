@@ -1,0 +1,1005 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Commandez en ligne vos plats haïtiens préférés chez Saveur Créole">
+    <title>Commande en Ligne | Saveur Créole</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Dancing+Script:wght@600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- CSS Personnalisé -->
+    <link rel="stylesheet" href="restorant.css">
+   <style>
+/* Filtres de catégorie */
+.filter-btn {
+    padding: 8px 20px;
+    border: 2px solid var(--primary-color);
+    background: transparent;
+    color: var(--primary-color);
+    border-radius: 25px;
+    font-weight: 600;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.filter-btn:hover,
+.filter-btn.active {
+    background: var(--primary-color);
+    color: var(--text-light);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+/* Recherche */
+.search-wrapper {
+    position: relative;
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.search-icon {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--text-gray);
+    z-index: 2;
+}
+
+.search-input {
+    width: 100%;
+    padding: 12px 15px 12px 45px;
+    border: 2px solid rgba(192,0,0,0.2);
+    border-radius: 30px;
+    font-size: 0.95rem;
+    transition: var(--transition);
+    background: #fff;
+}
+
+.search-input:focus {
+    outline: none;
+    border-color: var(--accent-color);
+    box-shadow: 0 0 0 3px rgba(255,107,107,0.2);
+}
+
+/* Cartes produits */
+.product-card {
+    background: #fff;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    border: 2px solid transparent;
+    transition: var(--transition);
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--accent-color);
+}
+
+.product-image {
+    position: relative;
+    height: 180px;
+    overflow: hidden;
+}
+
+.product-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.product-card:hover .product-image img {
+    transform: scale(1.08);
+}
+
+.product-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    background: var(--accent-color);
+    color: white;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.product-info {
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.product-name {
+    font-weight: 700;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+    line-height: 1.3;
+}
+
+.product-desc {
+    color: var(--text-gray);
+    font-size: 0.85rem;
+    line-height: 1.5;
+    margin-bottom: 0.8rem;
+    flex: 1;
+}
+
+.product-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 0.8rem;
+    border-top: 1px solid rgba(192,0,0,0.1);
+}
+
+.product-price {
+    font-size: 1.25rem;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+.btn-add-cart {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    flex-shrink: 0;
+}
+
+.btn-add-cart:hover {
+    background: var(--primary-dark);
+    transform: scale(1.1);
+}
+
+.btn-add-cart:active {
+    transform: scale(0.95);
+}
+
+/* Panier sidebar */
+.cart-sidebar {
+    background: #fff;
+    border-radius: 16px;
+    padding: 1.5rem;
+    box-shadow: var(--shadow-lg);
+}
+
+.cart-items {
+    min-height: 200px;
+}
+
+.cart-item {
+    display: flex;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px dashed rgba(192,0,0,0.15);
+    animation: slideIn 0.3s ease;
+}
+
+@keyframes slideIn {
+    from { opacity: 0; transform: translateX(-10px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.cart-item-img {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    object-fit: cover;
+    flex-shrink: 0;
+}
+
+.cart-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.cart-item-name {
+    font-weight: 600;
+    font-size: 0.95rem;
+    color: var(--text-dark);
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.cart-item-price {
+    color: var(--text-gray);
+    font-size: 0.85rem;
+}
+
+.cart-item-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.qty-control {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: var(--background-light);
+    border-radius: 8px;
+    padding: 2px;
+}
+
+.qty-btn {
+    width: 28px;
+    height: 28px;
+    border: none;
+    background: white;
+    border-radius: 6px;
+    color: var(--primary-color);
+    font-weight: 700;
+    cursor: pointer;
+    transition: var(--transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.qty-btn:hover {
+    background: var(--primary-color);
+    color: white;
+}
+
+.qty-value {
+    min-width: 24px;
+    text-align: center;
+    font-weight: 700;
+    font-size: 0.9rem;
+}
+
+.btn-remove {
+    background: none;
+    border: none;
+    color: var(--text-gray);
+    cursor: pointer;
+    padding: 4px;
+    transition: var(--transition);
+}
+
+.btn-remove:hover {
+    color: var(--primary-color);
+    transform: scale(1.2);
+}
+
+/* Badge panier */
+.cart-badge {
+    position: absolute;
+    top: -6px;
+    right: -6px;
+    background: var(--accent-color);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid white;
+}
+
+/* Mobile Drawer */
+.cart-drawer {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    max-width: 400px;
+    height: 100vh;
+    background: white;
+    box-shadow: var(--shadow-xl);
+    z-index: 1060;
+    transition: right 0.3s ease;
+    display: flex;
+    flex-direction: column;
+}
+
+.cart-drawer.active {
+    right: 0;
+}
+
+.cart-drawer-content {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.cart-drawer-items {
+    flex: 1;
+    overflow-y: auto;
+}
+
+.cart-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.5);
+    z-index: 1050;
+    opacity: 0;
+    visibility: hidden;
+    transition: var(--transition);
+}
+
+.cart-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+/* Toast custom */
+.toast {
+    border-radius: 12px;
+    border: none;
+    box-shadow: var(--shadow-lg);
+}
+
+/* Checkout button states */
+#checkoutBtn:disabled,
+#checkoutDrawerBtn:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+/* Responsive */
+@media (max-width: 991.98px) {
+    .cart-sidebar {
+        position: static;
+        margin-top: 2rem;
+    }
+    
+    #mobileCartBtn {
+        position: relative;
+    }
+}
+
+@media (max-width: 575.98px) {
+    .product-card {
+        flex-direction: row;
+        align-items: center;
+        padding: 0.8rem;
+    }
+    
+    .product-image {
+        width: 80px;
+        height: 80px;
+        flex-shrink: 0;
+    }
+    
+    .product-info {
+        padding: 0 0 0 1rem;
+    }
+    
+    .product-desc {
+        display: none;
+    }
+    
+    .product-footer {
+        border-top: none;
+        padding-top: 0;
+        margin-top: auto;
+    }
+}
+
+/* Animation de chargement */
+@keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.loading::after {
+    content: '...';
+    animation: pulse 1.5s infinite;
+}
+
+/* Accessibilité */
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* Focus visible pour navigation clavier */
+.filter-btn:focus-visible,
+.btn-add-cart:focus-visible,
+.qty-btn:focus-visible,
+.search-input:focus-visible {
+    outline: 3px solid var(--accent-color);
+    outline-offset: 2px;
+}
+   </style>
+</head>
+<body>
+
+    <!-- Bande promo -->
+    <div class="promo-band">
+        <i class="fas fa-truck"></i> Livraison gratuite pour toute commande > 1500 gds — Zone Delmas & Pétion-Ville
+        <i class="fas fa-truck"></i>
+    </div>
+
+    <!-- Navbar simplifiée pour la commande -->
+    <nav class="navbar navbar-expand-lg navbar-saveur fixed-top" id="orderNavbar">
+        <div class="container">
+            <a class="navbar-brand-wrapper" href="index.html">
+                <img src="image/loge.jpeg" alt="Logo Saveur Créole" class="navbar-brand-img">
+                <div>
+                    <span class="navbar-brand-text">Saveur Créole</span>
+                    <span class="navbar-brand-sub">Commande en ligne</span>
+                </div>
+            </a>
+            
+            <div class="d-flex align-items-center gap-3">
+                <a href="index.html" class="btn btn-sm btn-outline-light d-none d-lg-flex">
+                    <i class="fas fa-arrow-left"></i> Retour au site
+                </a>
+                <button class="btn btn-sm btn-light text-dark position-relative d-lg-none" id="mobileCartBtn" aria-label="Voir le panier">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-badge" id="mobileCartCount">0</span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container py-5 mt-5">
+        
+        <!-- Header Section -->
+        <div class="text-center mb-5" data-aos="fade-up">
+            <div class="section-badge"><i class="fas fa-shopping-basket"></i> Commande en Ligne</div>
+            <h1 class="section-title-main">Composez Votre Panier</h1>
+            <div class="section-divider"></div>
+            <p class="section-subtitle">Sélectionnez vos plats préférés et nous les préparons avec amour</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- MENU GRID -->
+            <section class="col-lg-8">
+                
+                <!-- Filtres rapides -->
+                <div class="d-flex flex-wrap gap-2 mb-4 justify-content-center justify-content-lg-start" id="categoryFilters">
+                    <button class="filter-btn active" data-category="all">Tous</button>
+                    <button class="filter-btn" data-category="friture">Fritures</button>
+                    <button class="filter-btn" data-category="plats">Plats</button>
+                    <button class="filter-btn" data-category="desserts">Desserts</button>
+                    <button class="filter-btn" data-category="boissons">Boissons</button>
+                </div>
+
+                <!-- Recherche -->
+                <div class="search-wrapper mb-4">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" id="searchInput" class="search-input" placeholder="Rechercher un plat...">
+                </div>
+
+                <!-- Grid des produits -->
+                <div class="row g-3" id="menuGrid">
+                    <!-- Injecté par JS -->
+                </div>
+
+                <!-- Loader -->
+                <div class="text-center py-5 d-none" id="loadingSpinner">
+                    <div class="spinner-border text-danger" role="status">
+                        <span class="visually-hidden">Chargement...</span>
+                    </div>
+                </div>
+            </section>
+
+            <!-- CART SIDEBAR -->
+            <aside class="col-lg-4">
+                <div class="cart-sidebar sticky-lg-top" style="top: 100px;" id="cartSidebar">
+                    
+                    <div class="cart-header d-flex justify-content-between align-items-center mb-3">
+                        <h3 class="h5 fw-bold mb-0" style="color: var(--primary-dark);">
+                            <i class="fas fa-shopping-cart me-2"></i>Votre Commande
+                        </h3>
+                        <button class="btn btn-sm btn-outline-secondary d-lg-none" id="closeCartMobile">✕</button>
+                    </div>
+
+                    <!-- Items du panier -->
+                    <div class="cart-items" id="cartItemsContainer" style="max-height: 45vh; overflow-y: auto;">
+                        <div class="cart-empty text-center py-4">
+                            <i class="fas fa-basket-shopping fa-3x text-muted mb-3" style="opacity: 0.3;"></i>
+                            <p class="text-muted mb-0">Votre panier est vide</p>
+                            <small class="text-muted">Ajoutez des plats pour commencer</small>
+                        </div>
+                    </div>
+
+                    <!-- Résumé -->
+                    <div class="cart-summary border-top pt-3 mt-3">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted">Sous-total</span>
+                            <span id="cartSubtotal">0 gds</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted">Livraison</span>
+                            <span id="cartDelivery">Gratuite</span>
+                        </div>
+                        <div class="d-flex justify-content-between mb-3 pt-2 border-top">
+                            <span class="fw-bold fs-5">Total</span>
+                            <span class="fw-bold fs-4" id="cartTotal" style="color: var(--primary-color);">0 gds</span>
+                        </div>
+
+                        <button id="checkoutBtn" class="btn-red w-100 py-3" disabled>
+                            <i class="fas fa-credit-card me-2"></i>Procéder au paiement
+                        </button>
+                        
+                        <small class="text-muted d-block text-center mt-2" style="font-size: 0.75rem;">
+                            <i class="fas fa-lock me-1"></i>Paiement sécurisé • Livraison 30-45 min
+                        </small>
+                    </div>
+                </div>
+            </aside>
+        </div>
+    </main>
+
+    <!-- Mobile Cart Drawer -->
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-drawer-content">
+            <div class="cart-drawer-header d-flex justify-content-between align-items-center p-3 border-bottom">
+                <h5 class="mb-0 fw-bold">Votre Panier</h5>
+                <button class="btn btn-sm btn-outline-secondary" id="closeCartDrawer">✕</button>
+            </div>
+            <div class="p-3" id="cartDrawerItems"></div>
+            <div class="cart-drawer-footer p-3 border-top">
+                <div class="d-flex justify-content-between mb-3">
+                    <span class="fw-bold">Total</span>
+                    <span class="fw-bold fs-5" id="cartDrawerTotal">0 gds</span>
+                </div>
+                <button class="btn-red w-100" id="checkoutDrawerBtn">Commander</button>
+            </div>
+        </div>
+    </div>
+    <div class="cart-overlay" id="cartOverlay"></div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container position-fixed bottom-0 end-0 p-3" style="z-index: 1100;">
+        <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true">
+            <div class="toast-header" style="background: var(--primary-color); color: white; border: none;">
+                <i class="fas fa-check-circle me-2"></i>
+                <strong class="me-auto">Ajouté</strong>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="toast" aria-label="Fermer"></button>
+            </div>
+            <div class="toast-body" id="toastMessage">Article ajouté au panier</div>
+        </div>
+    </div>
+
+    <!-- Checkout Modal -->
+    <div class="modal fade" id="checkoutModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content" style="border-radius: 16px; border: none;">
+                <div class="modal-header" style="background: var(--primary-color); color: white; border-radius: 16px 16px 0 0; border: none;">
+                    <h5 class="modal-title"><i class="fas fa-receipt me-2"></i>Finaliser la commande</h5>
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fermer"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="checkoutForm">
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" style="color: var(--primary-color);">Nom complet *</label>
+                            <input type="text" class="form-control-creole" required placeholder="Votre nom">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" style="color: var(--primary-color);">Téléphone *</label>
+                            <input type="tel" class="form-control-creole" required placeholder="+509 XX XX XX XX" pattern="^\+509\s?\d{4}\s?\d{4}$">
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" style="color: var(--primary-color);">Adresse de livraison *</label>
+                            <textarea class="form-control-creole" rows="2" required placeholder="Rue, quartier, repères..."></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" style="color: var(--primary-color);">Mode de paiement</label>
+                            <select class="form-control-creole">
+                                <option value="cash">Espèces à la livraison</option>
+                                <option value="moncash">MonCash</option>
+                                <option value="natcash">NatCash</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label fw-bold" style="color: var(--primary-color);">Heure de livraison</label>
+                            <select class="form-control-creole">
+                                <option value="asap">Dès que possible (30-45 min)</option>
+                                <option value="30">Dans 30 minutes</option>
+                                <option value="60">Dans 1 heure</option>
+                                <option value="scheduled">Programmer...</option>
+                            </select>
+                        </div>
+                        <div class="alert alert-info mb-0" style="font-size: 0.9rem; background: rgba(255,107,107,0.1); border-color: var(--primary-light);">
+                            <i class="fas fa-info-circle me-2"></i>Vous recevrez une confirmation par SMS après validation.
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer border-0 pt-0">
+                    <button type="button" class="btn btn-outline-secondary" data-bs-dismiss="modal">Annuler</button>
+                    <button type="submit" form="checkoutForm" class="btn-red">
+                        <i class="fas fa-check me-2"></i>Confirmer la commande
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script>
+        /**
+ * Saveur Créole - Commande en Ligne
+ * Optimisé pour performance et UX
+ */
+
+// Données du menu (à remplacer par fetch API plus tard)
+const MENU_ITEMS = [
+    { id: 1, name: "Akra", desc: "Beignets de malanga croustillants", price: 25, category: "friture", img: "image/akra.jpeg", popular: true },
+    { id: 2, name: "Bannann Peze", desc: "Bananes plantain frites assaisonnées", price: 50, category: "friture", img: "image/bannan.jpeg" },
+    { id: 3, name: "Diri Kole ak Pwason", desc: "Riz collé au poisson traditionnel", price: 750, category: "plats", img: "image/dirikole.jpeg", popular: true },
+    { id: 4, name: "Soupe Joumou", desc: "Soupe nationale à la citrouille", price: 350, category: "plats", img: "image/soupe_joumou.jpeg" },
+    { id: 5, name: "Griot ak Sos Ti Malice", desc: "Porc frit avec sauce pimentée", price: 850, category: "plats", img: "image/griot.jpeg" },
+    { id: 6, name: "Maïs Moulu", desc: "Avec avocat frais de saison", price: 1000, category: "plats", img: "image/mais.jpeg" },
+    { id: 7, name: "Ti Pate", desc: "Pâté farci à la viande bien assaisonnée", price: 200, category: "friture", img: "image/pate.jpeg" },
+    { id: 8, name: "Dous Makòs", desc: "Spécialité maison traditionnelle", price: 180, category: "desserts", img: "image/dous.jpeg" },
+    { id: 9, name: "Flan Coco", desc: "Flan crémeux à la noix de coco", price: 160, category: "desserts", img: "image/flan.jpeg" },
+    { id: 10, name: "Jus de Fruit Frais", desc: "Mango, Goyave, Corossol", price: 100, category: "boissons", img: "image/jus.jpeg" },
+    { id: 11, name: "Bière Haïtienne", desc: "Prestige, La Colombe", price: 150, category: "boissons", img: "image/biere.jpeg" },
+    { id: 12, name: "Pikliz", desc: "Accompagnement pimenté maison", price: 20, category: "friture", img: "image/pikliz.jpeg" }
+];
+
+// État du panier
+let cart = JSON.parse(localStorage.getItem('saveurCart')) || [];
+
+// Éléments DOM (cache pour performance)
+const DOM = {
+    menuGrid: document.getElementById('menuGrid'),
+    cartItems: document.getElementById('cartItemsContainer'),
+    cartDrawerItems: document.getElementById('cartDrawerItems'),
+    subtotal: document.getElementById('cartSubtotal'),
+    delivery: document.getElementById('cartDelivery'),
+    total: document.getElementById('cartTotal'),
+    drawerTotal: document.getElementById('cartDrawerTotal'),
+    checkoutBtn: document.getElementById('checkoutBtn'),
+    mobileCount: document.getElementById('mobileCartCount'),
+    searchInput: document.getElementById('searchInput'),
+    filters: document.querySelectorAll('.filter-btn'),
+    toast: null,
+    toastMessage: document.getElementById('toastMessage')
+};
+
+// Initialisation
+document.addEventListener('DOMContentLoaded', () => {
+    // Init AOS si disponible
+    if (typeof AOS !== 'undefined') AOS.init({ duration: 500, once: true });
+    
+    // Init Toast Bootstrap
+    DOM.toast = new bootstrap.Toast(document.getElementById('liveToast'));
+    
+    // Rendu initial
+    renderMenu(MENU_ITEMS);
+    renderCart();
+    
+    // Setup événements (délégation pour performance)
+    setupEventListeners();
+    
+    // Précharger les images au hover (optimisation UX)
+    preloadImagesOnHover();
+});
+
+// Rendu du menu avec filtrage
+function renderMenu(items) {
+    if (!items.length) {
+        DOM.menuGrid.innerHTML = `
+            <div class="col-12 text-center py-5">
+                <i class="fas fa-search fa-3x text-muted mb-3" style="opacity:0.3"></i>
+                <p class="text-muted">Aucun plat ne correspond à votre recherche</p>
+            </div>`;
+        return;
+    }
+    
+    DOM.menuGrid.innerHTML = items.map(item => `
+        <div class="col-sm-6 col-lg-4" data-category="${item.category}">
+            <article class="product-card">
+                <div class="product-image">
+                    <img src="${item.img}" alt="${item.name}" loading="lazy" onerror="this.src='https://via.placeholder.com/400x300?text=Saveur+Créole'">
+                    ${item.popular ? '<span class="product-badge"><i class="fas fa-fire me-1"></i>Populaire</span>' : ''}
+                </div>
+                <div class="product-info">
+                    <h3 class="product-name">${item.name}</h3>
+                    <p class="product-desc">${item.desc}</p>
+                    <div class="product-footer">
+                        <span class="product-price">${item.price} gds</span>
+                        <button class="btn-add-cart" data-id="${item.id}" aria-label="Ajouter ${item.name} au panier">
+                            <i class="fas fa-plus"></i>
+                        </button>
+                    </div>
+                </div>
+            </article>
+        </div>
+    `).join('');
+}
+
+// Rendu du panier (desktop + mobile)
+function renderCart() {
+    const isEmpty = cart.length === 0;
+    
+    // Desktop cart
+    DOM.cartItems.innerHTML = isEmpty 
+        ? `<div class="cart-empty text-center py-4">
+            <i class="fas fa-basket-shopping fa-3x text-muted mb-3" style="opacity:0.3"></i>
+            <p class="text-muted mb-0">Votre panier est vide</p>
+            <small class="text-muted">Ajoutez des plats pour commencer</small>
+           </div>`
+        : cart.map(item => createCartItemHTML(item)).join('');
+    
+    // Mobile drawer
+    DOM.cartDrawerItems.innerHTML = isEmpty
+        ? `<p class="text-center text-muted py-4">Votre panier est vide</p>`
+        : cart.map(item => createCartItemHTML(item, true)).join('');
+    
+    // Calculs
+    const subtotal = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+    const delivery = subtotal >= 1500 ? 0 : 150;
+    const total = subtotal + delivery;
+    
+    // Mise à jour UI
+    DOM.subtotal.textContent = `${subtotal} gds`;
+    DOM.delivery.textContent = delivery === 0 ? 'Gratuite' : `${delivery} gds`;
+    DOM.total.textContent = `${total} gds`;
+    DOM.drawerTotal.textContent = `${total} gds`;
+    
+    // Boutons
+    DOM.checkoutBtn.disabled = isEmpty;
+    document.getElementById('checkoutDrawerBtn').disabled = isEmpty;
+    
+    // Badge mobile
+    const totalQty = cart.reduce((sum, item) => sum + item.qty, 0);
+    DOM.mobileCount.textContent = totalQty;
+    DOM.mobileCount.style.display = totalQty > 0 ? 'flex' : 'none';
+    
+    // Persistance
+    localStorage.setItem('saveurCart', JSON.stringify(cart));
+}
+
+// HTML d'un item panier (réutilisable)
+function createCartItemHTML(item, isMobile = false) {
+    return `
+        <div class="cart-item" data-id="${item.id}">
+            <img src="${item.img}" alt="${item.name}" class="cart-item-img" loading="lazy" onerror="this.src='https://via.placeholder.com/60?text=Plat'">
+            <div class="cart-item-info">
+                <p class="cart-item-name">${item.name}</p>
+                <p class="cart-item-price">${item.price} gds × ${item.qty}</p>
+            </div>
+            <div class="cart-item-actions">
+                <div class="qty-control">
+                    <button class="qty-btn" data-action="decrease" data-id="${item.id}" aria-label="Diminuer">−</button>
+                    <span class="qty-value">${item.qty}</span>
+                    <button class="qty-btn" data-action="increase" data-id="${item.id}" aria-label="Augmenter">+</button>
+                </div>
+                <button class="btn-remove" data-id="${item.id}" aria-label="Retirer ${item.name}">
+                    <i class="fas fa-trash-alt"></i>
+                </button>
+            </div>
+        </div>
+    `;
+}
+
+// Ajouter au panier
+function addToCart(id) {
+    const item = MENU_ITEMS.find(i => i.id === id);
+    if (!item) return;
+    
+    const existing = cart.find(i => i.id === id);
+    if (existing) {
+        existing.qty++;
+    } else {
+        cart.push({ ...item, qty: 1 });
+    }
+    
+    renderCart();
+    showToast(`${item.name} ajouté au panier`);
+    
+    // Animation feedback sur le bouton
+    const btn = document.querySelector(`.btn-add-cart[data-id="${id}"]`);
+    if (btn) {
+        btn.style.transform = 'scale(0.9)';
+        setTimeout(() => btn.style.transform = '', 150);
+    }
+}
+
+// Modifier quantité
+function updateQty(id, action) {
+    const idx = cart.findIndex(i => i.id === id);
+    if (idx === -1) return;
+    
+    if (action === 'increase') {
+        cart[idx].qty++;
+    } else {
+        cart[idx].qty--;
+        if (cart[idx].qty <= 0) cart.splice(idx, 1);
+    }
+    renderCart();
+}
+
+// Retirer du panier
+function removeFromCart(id) {
+    const item = cart.find(i => i.id === id);
+    cart = cart.filter(i => i.id !== id);
+    renderCart();
+    if (item) showToast(`${item.name} retiré`);
+}
+
+// Filtrage par catégorie
+function filterByCategory(category) {
+    const filtered = category === 'all' 
+        ? MENU_ITEMS 
+        : MENU_ITEMS.filter(item => item.category === category);
+    renderMenu(filtered);
+}
+
+// Recherche en temps réel
+function searchItems(query) {
+    const lower = query.toLowerCase().trim();
+    if (!lower) {
+        renderMenu(MENU_ITEMS);
+        return;
+    }
+    const filtered = MENU_ITEMS.filter(item => 
+        item.name.toLowerCase().includes(lower) || 
+        item.desc.toLowerCase().includes(lower)
+    );
+    renderMenu(filtered);
+}
+
+// Toast notification
+function showToast(message) {
+    DOM.toastMessage.textContent = message;
+    DOM.toast.show();
+}
+
+// Préchargement intelligent des images
+function preloadImagesOnHover() {
+    DOM.menuGrid.addEventListener('mouseenter', (e) => {
+        const card = e.target.closest('.product-card');
+        if (card) {
+            const img = card.querySelector('img');
+            if (img && !img.complete) {
+                const preload = new Image();
+                preload.src = img.src;
+            }
+        }
+    }, { capture: true });
+}
+
+// Setup événements avec délégation (performance)
+function setupEventListeners() {
+    // Ajout au panier
+    DOM.menuGrid.addEventListener('click', (e) => {
+        const btn = e.target.closest('.btn-add-cart');
+        if (btn) addToCart(parseInt(btn.dataset.id));
+    });
+    
+    // Actions panier (desktop)
+    DOM.cartItems.addEventListener('click', (e) => {
+        const btn = e.target.closest('.qty-btn, .btn-remove');
+        if (!btn) return;
+        const id = parseInt(btn.dataset.id);
+        if (btn.classList.contains('btn-remove')) {
+            removeFromCart(id);
+        } else {
+            updateQty(id, btn.dataset.action);
+        }
+    });
+    
+    // Actions panier (mobile drawer)
+    DOM.cartDrawerItems.addEventListener('click', (e) => {
+        const btn = e.target.closest('.qty-btn, .btn-remove');
+        if (!btn) return;
+        const id = parseInt(btn.dataset.id);
+        if (btn.classList.contains('btn-remove')) {
+            removeFromCart(id);
+        } else {
+            updateQty(id, btn.dataset.action);
+        }
+    });
+    
+    // Filtres catégorie
+    DOM.filters.forEach(btn => {
+        btn.addEventListener('click', () => {
+            DOM.filters.forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            filterByCategory(btn.dataset.category);
+        });
+    });
+    
+    // Recherche avec debounce
+    let searchTimeout;
+    DOM.searchInput.addEventListener('input', (e) => {
+        clearTimeout(searchTimeout);
+        searchTimeout = setTimeout(() => searchItems(e.target.value), 300);
+    });
+    
+    // Mobile cart drawer
+    const drawer = document.getElementById('cartDrawer');
+    const overlay = document.getElementById('cartOverlay');
+    
+    document.getElementById('mobileCartBtn')?.addEventListener('click', () => {
+        drawer.classList.add('active');
+        overlay.classList.add('active');
+        // Sync mobile cart content
+        DOM.cartDrawerItems.innerHTML = DOM.cartItems.innerHTML;
+    });
+    
+    const closeDrawer = () => {
+        drawer.classList.remove('active');
+        overlay.classList.remove('active');
+    };
+    
+    document.getElementById('closeCartDrawer')?.addEventListener('click', closeDrawer);
+    document.getElementById('closeCartMobile')?.addEventListener('click', closeDrawer);
+    overlay?.addEventListener('click', closeDrawer);
+    
+    // Checkout modal
+    DOM.checkoutBtn?.addEventListener('click', () => {
+        new bootstrap.Modal(document.getElementById('checkoutModal')).show();
+    });
+    
+    document.getElementById('checkoutDrawerBtn')?.addEventListener('click', () => {
+        closeDrawer();
+        new bootstrap.Modal(document.getElementById('checkoutModal')).show();
+    });
+    
+    // Submit formulaire commande
+    document.getElementById('checkoutForm')?.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Simulation d'envoi
+        const btn = e.target.querySelector('button[type="submit"]');
+        const originalText = btn.innerHTML;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Traitement...';
+        btn.disabled = true;
+        
+        setTimeout(() => {
+            showToast('✅ Commande confirmée ! Vous recevrez un SMS de confirmation.');
+            cart = [];
+            renderCart();
+            bootstrap.Modal.getInstance(document.getElementById('checkoutModal')).hide();
+            btn.innerHTML = originalText;
+            btn.disabled = false;
+            e.target.reset();
+        }, 2000);
+    });
+    
+    // Fermer modal au scroll sur mobile
+    document.getElementById('checkoutModal')?.addEventListener('hidden.bs.modal', () => {
+        document.body.style.overflow = '';
+    });
+}
+
+// Exposer pour débogage (à retirer en prod)
+window.SaveurCart = { cart, addToCart, renderCart };
+    </script>
+</body>
+</html>
